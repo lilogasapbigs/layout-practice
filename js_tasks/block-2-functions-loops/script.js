@@ -140,3 +140,20 @@ if (menuButton) {
         document.querySelector('#generated-menu').innerHTML = createMenu(menuItems);
     });
 }
+
+const globalMessage = 'Глобальная переменная';
+
+function showScopeExample() {
+    const localMessage = 'Локальная переменная';
+    console.log(globalMessage);
+    console.log(localMessage);
+    return `${globalMessage}. ${localMessage} видна только внутри функции.`;
+}
+
+// console.log(localMessage); // так нельзя: локальная переменная снаружи недоступна
+const scopeButton = document.querySelector('#scope-button');
+if (scopeButton) {
+    scopeButton.addEventListener('click', () => {
+        document.querySelector('#scope-result').textContent = showScopeExample();
+    });
+}
