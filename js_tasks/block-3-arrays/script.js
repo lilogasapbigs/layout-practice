@@ -63,3 +63,28 @@ document.querySelector('#prices-button')?.addEventListener('click', () => {
         list.append(li);
     });
 });
+
+const filterTasks = [
+    { id: 1, title: 'Сделать HTML', completed: true },
+    { id: 2, title: 'Сделать CSS', completed: false },
+    { id: 3, title: 'Сделать JS', completed: false },
+];
+
+function renderFilteredTasks(tasks) {
+    const list = document.querySelector('#tasks-filter-list');
+    list.innerHTML = '';
+    tasks.forEach((task) => {
+        const li = document.createElement('li');
+        li.textContent = `${task.title} — ${task.completed ? 'готово' : 'не готово'}`;
+        list.append(li);
+    });
+}
+
+document.querySelectorAll('[data-task-filter]').forEach((button) => {
+    button.addEventListener('click', () => {
+        const filter = button.dataset.taskFilter;
+        if (filter === 'completed') renderFilteredTasks(filterTasks.filter((task) => task.completed));
+        else if (filter === 'open') renderFilteredTasks(filterTasks.filter((task) => !task.completed));
+        else renderFilteredTasks(filterTasks);
+    });
+});
