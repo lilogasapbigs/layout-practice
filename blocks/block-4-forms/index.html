@@ -69,6 +69,58 @@
                 <button type="reset">Очистить</button>
             </form>
         </section>
+
+        <section>
+            <h2>Фильтр каталога</h2>
+
+            <form action="#" method="get">
+                <p>
+                    <label for="search">Поиск</label><br>
+                    <input type="search" id="search" name="search">
+                </p>
+
+                <p>
+                    <label for="category">Категория</label><br>
+                    <select id="category" name="category">
+                        <option value="all">Все</option>
+                        <option value="books">Книги</option>
+                        <option value="games">Игры</option>
+                        <option value="tech">Техника</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="sort">Сортировка</label><br>
+                    <select id="sort" name="sort">
+                        <option value="popular">По популярности</option>
+                        <option value="cheap">Сначала дешевые</option>
+                        <option value="expensive">Сначала дорогие</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="price">Цена до</label><br>
+                    <input type="range" id="price" name="price" min="0" max="100000" step="1000">
+                </p>
+
+                <p>Дополнительно</p>
+                <p>
+                    <label><input type="checkbox" name="only-new"> только новые</label><br>
+                    <label><input type="checkbox" name="delivery"> с доставкой</label><br>
+                    <label><input type="checkbox" name="discount"> со скидкой</label>
+                </p>
+
+                <p>Состояние</p>
+                <p>
+                    <label><input type="radio" name="condition" value="any" checked> любое</label><br>
+                    <label><input type="radio" name="condition" value="new"> новое</label><br>
+                    <label><input type="radio" name="condition" value="used"> б/у</label>
+                </p>
+
+                <button type="submit">Применить</button>
+                <button type="reset">Сбросить</button>
+            </form>
+        </section>
     </main>
 </body>
 
