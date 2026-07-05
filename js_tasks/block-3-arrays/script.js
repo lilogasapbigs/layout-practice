@@ -37,3 +37,15 @@ document.querySelector('#array-search-button')?.addEventListener('click', () => 
     const filtered = searchProductsList.filter((product) => product.toLowerCase().includes(query));
     renderSearchProducts(filtered);
 });
+
+const usersById = [
+    { id: 1, name: 'Анна' },
+    { id: 2, name: 'Иван' },
+    { id: 3, name: 'Олег' },
+];
+
+document.querySelector('#user-id-button')?.addEventListener('click', () => {
+    const id = Number(document.querySelector('#user-id-input').value);
+    const user = usersById.find((item) => item.id === id);
+    document.querySelector('#user-id-result').textContent = user ? user.name : 'Пользователь не найден';
+});
