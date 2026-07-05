@@ -18,3 +18,9 @@ document.querySelector('#create-item-button')?.addEventListener('click', () => {
     document.querySelector('#created-list').append(li);
     input.value = '';
 });
+
+document.querySelectorAll('#remove-list button').forEach((button) => {
+    button.addEventListener('click', () => {
+        button.closest('li').remove();
+    });
+});
