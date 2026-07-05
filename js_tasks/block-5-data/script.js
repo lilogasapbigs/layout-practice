@@ -27,3 +27,17 @@ if (categoryCatalog) {
         categoryCatalog.append(block);
     });
 }
+
+const dataUsers = [
+    { id: 1, name: 'Анна', email: 'anna@example.com', role: 'admin', active: true },
+    { id: 2, name: 'Иван', email: 'ivan@example.com', role: 'user', active: false },
+    { id: 3, name: 'Олег', email: 'oleg@example.com', role: 'admin', active: true },
+];
+const activeUsers = dataUsers.filter((user) => user.active);
+const adminUsers = dataUsers.filter((user) => user.role === 'admin');
+const userEmails = dataUsers.map((user) => user.email);
+const inactiveCount = dataUsers.filter((user) => !user.active).length;
+const preparedUsers = document.querySelector('#prepared-users');
+if (preparedUsers) {
+    preparedUsers.innerHTML = `<p>Активные: ${activeUsers.map((u) => u.name).join(', ')}</p><p>Админы: ${adminUsers.map((u) => u.name).join(', ')}</p><p>Email: ${userEmails.join(', ')}</p><p>Неактивных: ${inactiveCount}</p>`;
+}
