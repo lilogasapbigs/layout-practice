@@ -80,3 +80,22 @@ function renderDataCatalog() {
 }
 ['#data-search', '#data-category', '#data-sort'].forEach((selector) => document.querySelector(selector)?.addEventListener('input', renderDataCatalog));
 renderDataCatalog();
+
+function filterByCategory(products, category) {
+    return products.filter((product) => category === 'all' || product.category === category);
+}
+function searchProducts(products, query) {
+    return products.filter((product) => product.title.toLowerCase().includes(query.toLowerCase()));
+}
+function sortByPrice(products, direction) {
+    const result = [...products];
+    if (direction === 'asc') return result.sort((a, b) => a.price - b.price);
+    if (direction === 'desc') return result.sort((a, b) => b.price - a.price);
+    return result;
+}
+function formatProducts(products) {
+    return products.map((product) => `${product.title}: ${product.price} ₽`);
+}
+const pureResult = formatProducts(sortByPrice(searchProducts(filterByCategory(catalogItems, 'Периферия'), 'а'), 'asc'));
+const pureFunctions = document.querySelector('#pure-functions');
+if (pureFunctions) pureFunctions.textContent = pureResult.join(', ');
