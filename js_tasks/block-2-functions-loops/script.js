@@ -123,3 +123,20 @@ if (passwordCheckButton) {
         document.querySelector('#password-check-result').textContent = checkPassword(password);
     });
 }
+
+const menuItems = ['Главная', 'Каталог', 'О нас', 'Контакты'];
+
+function createMenu(items) {
+    let html = '';
+    for (const item of items) {
+        html += `<a href="#">${item}</a> `;
+    }
+    return html;
+}
+
+const menuButton = document.querySelector('#menu-button');
+if (menuButton) {
+    menuButton.addEventListener('click', () => {
+        document.querySelector('#generated-menu').innerHTML = createMenu(menuItems);
+    });
+}
