@@ -54,3 +54,16 @@ document.querySelector('#todo-list')?.addEventListener('click', (event) => {
     }
 });
 renderTodos();
+
+const delegationProducts = ['Мышь', 'Клавиатура', 'Монитор'];
+const delegationContainer = document.querySelector('#delegation-products');
+if (delegationContainer) {
+    delegationContainer.innerHTML = delegationProducts.map((title) => `<article class="card" data-title="${title}"><h3>${title}</h3><button data-action="cart" type="button">В корзину</button><button data-action="remove" type="button">Удалить</button></article>`).join('');
+    delegationContainer.addEventListener('click', (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        const card = button.closest('.card');
+        if (button.dataset.action === 'remove') card.remove();
+        if (button.dataset.action === 'cart') document.querySelector('#delegation-message').textContent = `Добавлено: ${card.dataset.title}`;
+    });
+}
