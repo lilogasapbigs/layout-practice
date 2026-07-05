@@ -163,6 +163,111 @@
                 <button type="submit">Отправить</button>
             </form>
         </section>
+
+        <section>
+            <h2>Большая анкета</h2>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Личные данные</legend>
+
+                    <p>
+                        <label for="survey-first-name">Имя</label><br>
+                        <input type="text" id="survey-first-name" name="survey-first-name" required>
+                    </p>
+
+                    <p>
+                        <label for="survey-last-name">Фамилия</label><br>
+                        <input type="text" id="survey-last-name" name="survey-last-name" required>
+                    </p>
+
+                    <p>
+                        <label for="survey-age">Возраст</label><br>
+                        <input type="number" id="survey-age" name="survey-age" min="14" max="80" required>
+                    </p>
+
+                    <p>
+                        <label for="survey-city">Город</label><br>
+                        <input type="text" id="survey-city" name="survey-city">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Контакты</legend>
+
+                    <p>
+                        <label for="survey-email">Email</label><br>
+                        <input type="email" id="survey-email" name="survey-email" required>
+                    </p>
+
+                    <p>
+                        <label for="survey-phone">Телефон</label><br>
+                        <input type="tel" id="survey-phone" name="survey-phone">
+                    </p>
+
+                    <p>
+                        <label for="survey-telegram">Telegram</label><br>
+                        <input type="text" id="survey-telegram" name="survey-telegram">
+                    </p>
+
+                    <p>
+                        <label for="survey-site">Сайт</label><br>
+                        <input type="url" id="survey-site" name="survey-site">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Предпочтения</legend>
+
+                    <p>
+                        <label for="survey-format">Формат обучения</label><br>
+                        <select id="survey-format" name="survey-format">
+                            <option value="offline">Очно</option>
+                            <option value="online">Онлайн</option>
+                            <option value="mixed">Смешанный</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="survey-time">Удобное время</label><br>
+                        <input type="time" id="survey-time" name="survey-time">
+                    </p>
+
+                    <p>
+                        <label for="survey-level">Уровень подготовки</label><br>
+                        <input type="range" id="survey-level" name="survey-level" min="1" max="10">
+                    </p>
+
+                    <p>
+                        <label><input type="checkbox" name="topic-html"> html</label><br>
+                        <label><input type="checkbox" name="topic-css"> css</label><br>
+                        <label><input type="checkbox" name="topic-js"> javascript</label>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Дополнительная информация</legend>
+
+                    <p>
+                        <label for="survey-comment">Комментарий</label><br>
+                        <textarea id="survey-comment" name="survey-comment" rows="5" cols="40"></textarea>
+                    </p>
+
+                    <p>
+                        <label for="survey-file">Файл</label><br>
+                        <input type="file" id="survey-file" name="survey-file">
+                    </p>
+
+                    <p>
+                        <label for="survey-color">Любимый цвет</label><br>
+                        <input type="color" id="survey-color" name="survey-color">
+                    </p>
+                </fieldset>
+
+                <button type="submit">Отправить анкету</button>
+                <button type="reset">Очистить анкету</button>
+            </form>
+        </section>
     </main>
 </body>
 
