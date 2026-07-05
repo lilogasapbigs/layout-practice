@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f8;
+    color: #222222;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.main-menu {
+    display: flex;
+    gap: 14px;
+}
+
+.main-menu a {
+    color: #1b4d89;
+    text-decoration: none;
+}
+
+.app-header input {
+    flex-grow: 1;
+    padding: 8px;
+}
+
+button {
+    padding: 8px 12px;
+}
+
+main {
+    padding: 24px;
+}
