@@ -28,3 +28,23 @@ if (discountButton) {
         result.textContent = `Итоговая цена: ${finalPrice.toFixed(0)} ₽`;
     });
 }
+
+const ageButton = document.querySelector('#age-button');
+
+if (ageButton) {
+    ageButton.addEventListener('click', () => {
+        const value = document.querySelector('#age-input').value;
+        const age = Number(value);
+        const result = document.querySelector('#age-result');
+
+        if (value === '' || !Number.isFinite(age) || age < 0) {
+            result.textContent = 'Введите корректный возраст';
+        } else if (age < 18) {
+            result.textContent = 'Доступ запрещён';
+        } else if (age < 60) {
+            result.textContent = 'Доступ разрешён';
+        } else {
+            result.textContent = 'Льготная категория';
+        }
+    });
+}
