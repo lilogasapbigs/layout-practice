@@ -87,3 +87,36 @@ document.querySelector('#event-search')?.addEventListener('input', renderEventCa
 document.querySelector('#event-category')?.addEventListener('change', renderEventCatalog);
 document.querySelector('#event-sort')?.addEventListener('change', renderEventCatalog);
 renderEventCatalog();
+
+const shopProducts = [
+    { id: 1, title: 'Мышь', price: 1000 },
+    { id: 2, title: 'Клавиатура', price: 3000 },
+    { id: 3, title: 'Монитор', price: 15000 },
+];
+const shopCart = [];
+function renderShopProducts() {
+    document.querySelector('#shop-products').innerHTML = shopProducts.map((product) => `<article class="card"><h3>${product.title}</h3><p>${product.price} ₽</p><button data-id="${product.id}" type="button">В корзину</button></article>`).join('');
+}
+function renderShopCart() {
+    document.querySelector('#shop-cart').innerHTML = shopCart.map((item) => `<div class="task-row">${item.title}: ${item.count} шт. <button data-remove="${item.id}" type="button">Удалить</button></div>`).join('');
+    const total = shopCart.reduce((sum, item) => sum + item.price * item.count, 0);
+    document.querySelector('#shop-total').textContent = `Итого: ${total} ₽`;
+}
+document.querySelector('#shop-products')?.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-id]');
+    if (!button) return;
+    const product = shopProducts.find((item) => item.id === Number(button.dataset.id));
+    const cartItem = shopCart.find((item) => item.id === product.id);
+    if (cartItem) cartItem.count += 1;
+    else shopCart.push({ ...product, count: 1 });
+    renderShopCart();
+});
+document.querySelector('#shop-cart')?.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-remove]');
+    if (!button) return;
+    const index = shopCart.findIndex((item) => item.id === Number(button.dataset.remove));
+    shopCart.splice(index, 1);
+    renderShopCart();
+});
+renderShopProducts();
+renderShopCart();
