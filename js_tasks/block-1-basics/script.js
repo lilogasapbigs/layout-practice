@@ -48,3 +48,25 @@ if (ageButton) {
         }
     });
 }
+
+const registerForm = document.querySelector('#register-form');
+
+if (registerForm) {
+    registerForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.querySelector('#register-name').value.trim();
+        const email = document.querySelector('#register-email').value.trim();
+        const password = document.querySelector('#register-password').value.trim();
+        const result = document.querySelector('#register-result');
+
+        if (!name) {
+            result.textContent = 'Введите имя';
+        } else if (!email) {
+            result.textContent = 'Введите email';
+        } else if (!password) {
+            result.textContent = 'Введите пароль';
+        } else {
+            result.textContent = 'Форма заполнена правильно';
+        }
+    });
+}
