@@ -35,3 +35,20 @@ button {
 main {
     padding: 24px;
 }
+
+.center-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    margin-bottom: 30px;
+    background: #e8eef8;
+}
+
+.center-box {
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+}
