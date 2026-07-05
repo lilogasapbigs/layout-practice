@@ -36,6 +36,28 @@ main {
     padding: 24px;
 }
 
+.action-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+}
+
+.panel-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.primary-button {
+    background: #1b4d89;
+    color: #ffffff;
+    border: 1px solid #1b4d89;
+}
+
 .center-wrapper {
     display: flex;
     align-items: center;
