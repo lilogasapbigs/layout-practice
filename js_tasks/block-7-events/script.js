@@ -67,3 +67,23 @@ if (delegationContainer) {
         if (button.dataset.action === 'cart') document.querySelector('#delegation-message').textContent = `Добавлено: ${card.dataset.title}`;
     });
 }
+
+const eventProducts = [
+    { title: 'Мышь', price: 1000, category: 'Периферия' },
+    { title: 'Клавиатура', price: 3000, category: 'Периферия' },
+    { title: 'Монитор', price: 15000, category: 'Техника' },
+];
+function renderEventCatalog() {
+    const query = document.querySelector('#event-search').value.toLowerCase();
+    const category = document.querySelector('#event-category').value;
+    const sort = document.querySelector('#event-sort').value;
+    let result = eventProducts.filter((product) => product.title.toLowerCase().includes(query) && (category === 'all' || product.category === category));
+    result = [...result];
+    if (sort === 'asc') result.sort((a, b) => a.price - b.price);
+    if (sort === 'desc') result.sort((a, b) => b.price - a.price);
+    document.querySelector('#event-catalog').innerHTML = result.map((product) => `<article class="card"><h3>${product.title}</h3><p>${product.price} ₽</p></article>`).join('');
+}
+document.querySelector('#event-search')?.addEventListener('input', renderEventCatalog);
+document.querySelector('#event-category')?.addEventListener('change', renderEventCatalog);
+document.querySelector('#event-sort')?.addEventListener('change', renderEventCatalog);
+renderEventCatalog();
