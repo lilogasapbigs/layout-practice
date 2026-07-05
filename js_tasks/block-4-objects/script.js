@@ -34,3 +34,17 @@ const destructuringResult = document.querySelector('#destructuring-result');
 if (destructuringResult) {
     destructuringResult.textContent = `${name}, ${email}, ${role}`;
 }
+
+const templateProduct = { title: 'Монитор', price: 15000, category: 'Техника', description: 'Обычный монитор для учебы.' };
+const templateCard = document.querySelector('#template-card');
+if (templateCard) {
+    templateCard.innerHTML = `
+        <article class="product-card">
+            <h3>${templateProduct.title}</h3>
+            <p>${templateProduct.description}</p>
+            <p>${templateProduct.category}</p>
+            <strong>${templateProduct.price} ₽</strong>
+            <button type="button">Купить</button>
+        </article>
+    `;
+}
