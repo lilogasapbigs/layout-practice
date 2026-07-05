@@ -50,3 +50,23 @@ if (multiplyButton) {
         });
     });
 }
+
+const generatedProducts = ['Ноутбук', 'Мышь', 'Клавиатура', 'Монитор'];
+
+function createProductCard(title) {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `<h3>${title}</h3><p>Товар из массива</p>`;
+    return card;
+}
+
+const renderProductsButton = document.querySelector('#render-products-button');
+if (renderProductsButton) {
+    renderProductsButton.addEventListener('click', () => {
+        const container = document.querySelector('#products-container');
+        container.innerHTML = '';
+        for (const product of generatedProducts) {
+            container.append(createProductCard(product));
+        }
+    });
+}
