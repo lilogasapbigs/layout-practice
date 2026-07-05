@@ -92,3 +92,16 @@ if (productPriceButton) {
         }
     });
 }
+
+const toggleButton = document.querySelector('#toggle-button');
+let isEnabled = false;
+
+if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+        isEnabled = !isEnabled;
+        const state = document.querySelector('#toggle-state');
+        state.textContent = isEnabled ? 'Включено' : 'Выключено';
+        state.classList.toggle('state-on', isEnabled);
+        state.classList.toggle('state-off', !isEnabled);
+    });
+}
