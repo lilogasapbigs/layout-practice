@@ -48,3 +48,23 @@ if (templateCard) {
         </article>
     `;
 }
+
+const order = {
+    number: 'A-1001',
+    date: '2026-05-31',
+    client: { name: 'Иван Петров', email: 'ivan@example.com' },
+    items: [
+        { title: 'Мышь', price: 1000, count: 2 },
+        { title: 'Клавиатура', price: 3000, count: 1 },
+    ],
+};
+
+function getOrderTotal(items) {
+    return items.reduce((sum, item) => sum + item.price * item.count, 0);
+}
+
+const orderResult = document.querySelector('#order-result');
+if (orderResult) {
+    const rows = order.items.map((item) => `<tr><td>${item.title}</td><td>${item.price}</td><td>${item.count}</td></tr>`).join('');
+    orderResult.innerHTML = `<h3>Заказ ${order.number}</h3><p>${order.date}</p><p>${order.client.name}, ${order.client.email}</p><table><tbody>${rows}</tbody></table><strong>Итого: ${getOrderTotal(order.items)} ₽</strong>`;
+}
