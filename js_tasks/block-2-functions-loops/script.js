@@ -70,3 +70,41 @@ if (renderProductsButton) {
         }
     });
 }
+
+const numbers = [];
+
+function getSum(items) {
+    let sum = 0;
+    for (const item of items) {
+        sum += item;
+    }
+    return sum;
+}
+
+function getAverage(items) {
+    if (items.length === 0) return 0;
+    return getSum(items) / items.length;
+}
+
+function renderNumbers() {
+    const list = document.querySelector('#numbers-list');
+    list.innerHTML = '';
+    for (const number of numbers) {
+        const li = document.createElement('li');
+        li.textContent = number;
+        list.append(li);
+    }
+    document.querySelector('#numbers-sum').textContent = `Сумма: ${getSum(numbers)}`;
+    document.querySelector('#numbers-average').textContent = `Среднее: ${getAverage(numbers).toFixed(1)}`;
+}
+
+const numberAddButton = document.querySelector('#number-add-button');
+if (numberAddButton) {
+    numberAddButton.addEventListener('click', () => {
+        const input = document.querySelector('#number-input');
+        if (input.value === '') return;
+        numbers.push(Number(input.value));
+        input.value = '';
+        renderNumbers();
+    });
+}
