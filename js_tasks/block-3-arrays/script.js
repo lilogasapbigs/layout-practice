@@ -49,3 +49,17 @@ document.querySelector('#user-id-button')?.addEventListener('click', () => {
     const user = usersById.find((item) => item.id === id);
     document.querySelector('#user-id-result').textContent = user ? user.name : 'Пользователь не найден';
 });
+
+const prices = [500, 1200, 3000, 700];
+
+document.querySelector('#prices-button')?.addEventListener('click', () => {
+    const discountedPrices = prices.map((price) => price * 0.9);
+    const lines = discountedPrices.map((price) => `Цена товара: ${price.toFixed(0)} ₽`);
+    const list = document.querySelector('#prices-list');
+    list.innerHTML = '';
+    lines.forEach((line) => {
+        const li = document.createElement('li');
+        li.textContent = line;
+        list.append(li);
+    });
+});
