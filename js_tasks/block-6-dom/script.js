@@ -47,3 +47,18 @@ document.querySelector('#modal-close')?.addEventListener('click', () => modalOve
 modalOverlay?.addEventListener('click', (event) => {
     if (event.target === modalOverlay) modalOverlay.classList.remove('open');
 });
+
+const domTableUsers = [
+    { name: 'Анна', email: 'anna@example.com', role: 'admin' },
+    { name: 'Иван', email: 'ivan@example.com', role: 'user' },
+];
+function renderDomTable() {
+    const tbody = document.querySelector('#dom-table-body');
+    tbody.innerHTML = '';
+    domTableUsers.forEach((user) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${user.name}</td><td>${user.email}</td><td>${user.role}</td>`;
+        tbody.append(tr);
+    });
+}
+renderDomTable();
