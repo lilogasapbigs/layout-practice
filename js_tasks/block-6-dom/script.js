@@ -40,3 +40,10 @@ function renderDomCatalog() {
     });
 }
 document.querySelector('#dom-catalog-button')?.addEventListener('click', renderDomCatalog);
+
+const modalOverlay = document.querySelector('#modal-overlay');
+document.querySelector('#modal-open')?.addEventListener('click', () => modalOverlay.classList.add('open'));
+document.querySelector('#modal-close')?.addEventListener('click', () => modalOverlay.classList.remove('open'));
+modalOverlay?.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) modalOverlay.classList.remove('open');
+});
