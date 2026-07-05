@@ -27,3 +27,26 @@ if (calcButton) {
         document.querySelector('#calc-result').textContent = `Результат: ${calculate(a, b, operation)}`;
     });
 }
+
+function createMultiplicationTable(number) {
+    const lines = [];
+    for (let i = 1; i <= 10; i++) {
+        lines.push(`${number} × ${i} = ${number * i}`);
+    }
+    return lines;
+}
+
+const multiplyButton = document.querySelector('#multiply-button');
+if (multiplyButton) {
+    multiplyButton.addEventListener('click', () => {
+        const number = Number(document.querySelector('#multiply-number').value);
+        const result = document.querySelector('#multiply-result');
+        result.innerHTML = '';
+
+        createMultiplicationTable(number).forEach((line) => {
+            const div = document.createElement('div');
+            div.textContent = line;
+            result.append(div);
+        });
+    });
+}
