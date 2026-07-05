@@ -41,3 +41,18 @@ const preparedUsers = document.querySelector('#prepared-users');
 if (preparedUsers) {
     preparedUsers.innerHTML = `<p>Активные: ${activeUsers.map((u) => u.name).join(', ')}</p><p>Админы: ${adminUsers.map((u) => u.name).join(', ')}</p><p>Email: ${userEmails.join(', ')}</p><p>Неактивных: ${inactiveCount}</p>`;
 }
+
+const dataOrders = [
+    { number: 'A-1', client: 'Анна', items: [{ price: 1000, count: 2 }], status: 'готов' },
+    { number: 'A-2', client: 'Иван', items: [{ price: 3000, count: 1 }, { price: 500, count: 2 }], status: 'новый' },
+];
+function getItemsCount(items) {
+    return items.reduce((sum, item) => sum + item.count, 0);
+}
+function getItemsTotal(items) {
+    return items.reduce((sum, item) => sum + item.price * item.count, 0);
+}
+const ordersTable = document.querySelector('#orders-table');
+if (ordersTable) {
+    ordersTable.innerHTML = dataOrders.map((order) => `<tr><td>${order.number}</td><td>${order.client}</td><td>${getItemsCount(order.items)}</td><td>${getItemsTotal(order.items)}</td><td>${order.status}</td></tr>`).join('');
+}
