@@ -53,3 +53,41 @@ nav a {
 .main-link {
     font-weight: bold;
 }
+
+.cards {
+    display: block;
+}
+
+.card {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 2px solid #444444;
+    background: #fafafa;
+}
+
+.card span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+.card button,
+.card a {
+    padding: 6px 10px;
+    border: 1px solid #1b4d89;
+    background: #1b4d89;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.user-card {
+    border-color: #2f6f4e;
+}
+
+.product-card {
+    border-color: #8a2c2c;
+}
+
+.article-card {
+    border-color: #6a4c93;
+}
