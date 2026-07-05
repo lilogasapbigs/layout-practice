@@ -14,7 +14,8 @@ h1 {
     color: #1b4d89;
 }
 
-h2 {
+h2,
+h3 {
     color: #2f6f4e;
 }
 
@@ -22,9 +23,33 @@ a {
     color: #8a2c2c;
 }
 
+a:hover {
+    color: #c0392b;
+}
+
 section {
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid #bbbbbb;
     background: #ffffff;
+}
+
+#about {
+    border-left: 5px solid #1b4d89;
+}
+
+.info-section {
+    max-width: 800px;
+}
+
+.lead {
+    font-size: 18px;
+}
+
+nav a {
+    margin-right: 12px;
+}
+
+.main-link {
+    font-weight: bold;
 }
