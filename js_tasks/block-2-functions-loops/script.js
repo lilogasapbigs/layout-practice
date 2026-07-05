@@ -108,3 +108,18 @@ if (numberAddButton) {
         renderNumbers();
     });
 }
+
+function checkPassword(password) {
+    if (password.length < 8) return 'Минимум 8 символов';
+    if (!/[0-9]/.test(password)) return 'Нужна хотя бы одна цифра';
+    if (!/[a-zа-яё]/i.test(password)) return 'Нужна хотя бы одна буква';
+    return 'Пароль нормальный';
+}
+
+const passwordCheckButton = document.querySelector('#password-check-button');
+if (passwordCheckButton) {
+    passwordCheckButton.addEventListener('click', () => {
+        const password = document.querySelector('#password-check-input').value;
+        document.querySelector('#password-check-result').textContent = checkPassword(password);
+    });
+}
