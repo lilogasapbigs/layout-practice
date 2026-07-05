@@ -120,3 +120,30 @@ document.querySelector('#cart-button')?.addEventListener('click', () => {
     list.innerHTML = cart.map((item) => `<p>${item.title}: ${item.count} шт.</p>`).join('');
     document.querySelector('#cart-total').textContent = `Сумма: ${getCartSum(cart)} ₽, товаров: ${getCartCount(cart)}, самый дорогой: ${getMostExpensive(cart).title}`;
 });
+
+const sortableProducts = [
+    { title: 'Мышь', price: 1000 },
+    { title: 'Монитор', price: 15000 },
+    { title: 'Клавиатура', price: 3000 },
+];
+
+function renderSortedProducts(products) {
+    const list = document.querySelector('#sort-list');
+    list.innerHTML = '';
+    products.forEach((product) => {
+        const li = document.createElement('li');
+        li.textContent = `${product.title}: ${product.price} ₽`;
+        list.append(li);
+    });
+}
+
+document.querySelectorAll('[data-sort]').forEach((button) => {
+    button.addEventListener('click', () => {
+        const direction = button.dataset.sort;
+        let list = [...sortableProducts];
+        if (direction === 'asc') list.sort((a, b) => a.price - b.price);
+        if (direction === 'desc') list.sort((a, b) => b.price - a.price);
+        renderSortedProducts(list);
+    });
+});
+renderSortedProducts(sortableProducts);
