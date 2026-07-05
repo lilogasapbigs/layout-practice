@@ -91,3 +91,29 @@ nav a {
 .article-card {
     border-color: #6a4c93;
 }
+
+.box-demo {
+    background: #fff8e8;
+}
+
+.box {
+    background: #d9ecff;
+    margin-bottom: 10px;
+}
+
+.box-margin {
+    margin: 30px;
+}
+
+.box-padding {
+    padding: 30px;
+}
+
+.box-border {
+    border: 8px solid #8a2c2c;
+}
+
+.box-size {
+    width: 250px;
+    height: 80px;
+}
