@@ -24,3 +24,19 @@ document.querySelectorAll('#remove-list button').forEach((button) => {
         button.closest('li').remove();
     });
 });
+
+const domCatalogProducts = [
+    { title: 'Мышь', price: 1000 },
+    { title: 'Клавиатура', price: 3000 },
+];
+function renderDomCatalog() {
+    const container = document.querySelector('#dom-catalog');
+    container.innerHTML = '';
+    domCatalogProducts.forEach((product) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `<h3>${product.title}</h3><p>${product.price} ₽</p>`;
+        container.append(card);
+    });
+}
+document.querySelector('#dom-catalog-button')?.addEventListener('click', renderDomCatalog);
