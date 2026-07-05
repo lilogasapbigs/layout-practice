@@ -26,3 +26,11 @@ if (objectUsersContainer) {
         objectUsersContainer.append(card);
     });
 }
+
+const destructuringUser = { name: 'Мария', email: 'maria@example.com', role: 'student' };
+const { name, email, role } = destructuringUser;
+// старый способ: destructuringUser.name, destructuringUser.email, destructuringUser.role
+const destructuringResult = document.querySelector('#destructuring-result');
+if (destructuringResult) {
+    destructuringResult.textContent = `${name}, ${email}, ${role}`;
+}
