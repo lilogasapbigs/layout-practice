@@ -99,3 +99,18 @@ function formatProducts(products) {
 const pureResult = formatProducts(sortByPrice(searchProducts(filterByCategory(catalogItems, 'Периферия'), 'а'), 'asc'));
 const pureFunctions = document.querySelector('#pure-functions');
 if (pureFunctions) pureFunctions.textContent = pureResult.join(', ');
+
+const rawProducts = [
+    { name: 'mouse', price: 1000, available: true },
+    { name: 'keyboard', price: 3000, available: false },
+];
+const uiProducts = rawProducts.map((product) => ({
+    title: product.name[0].toUpperCase() + product.name.slice(1),
+    price: `${product.price} ₽`,
+    availableText: product.available ? 'В наличии' : 'Нет в наличии',
+    className: product.available ? 'available' : 'not-available',
+}));
+const rawProductsContainer = document.querySelector('#raw-products');
+if (rawProductsContainer) {
+    rawProductsContainer.innerHTML = uiProducts.map((product) => `<article class="card ${product.className}"><h3>${product.title}</h3><p>${product.price}</p><p>${product.availableText}</p></article>`).join('');
+}
