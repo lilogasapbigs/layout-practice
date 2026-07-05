@@ -58,3 +58,28 @@ section {
 .display-none {
     display: none;
 }
+
+.overflow-box {
+    width: 220px;
+    height: 60px;
+    margin-bottom: 35px;
+    padding: 10px;
+    border: 1px solid #555555;
+    background: #ffffff;
+}
+
+.overflow-visible {
+    overflow: visible;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-scroll {
+    overflow: scroll;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
