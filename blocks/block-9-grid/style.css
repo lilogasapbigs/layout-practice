@@ -142,3 +142,26 @@ footer {
     grid-area: chart;
     min-height: 160px;
 }
+
+.mixed-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.mixed-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+.mixed-card p {
+    flex-grow: 1;
+}
+
+.mixed-card button {
+    align-self: flex-start;
+}
