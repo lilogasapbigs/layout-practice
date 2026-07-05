@@ -56,3 +56,27 @@ const ordersTable = document.querySelector('#orders-table');
 if (ordersTable) {
     ordersTable.innerHTML = dataOrders.map((order) => `<tr><td>${order.number}</td><td>${order.client}</td><td>${getItemsCount(order.items)}</td><td>${getItemsTotal(order.items)}</td><td>${order.status}</td></tr>`).join('');
 }
+
+const catalogItems = [
+    { title: 'Мышь', price: 1000, category: 'Периферия' },
+    { title: 'Монитор', price: 15000, category: 'Техника' },
+    { title: 'Клавиатура', price: 3000, category: 'Периферия' },
+];
+function filterCatalog(products, query, category) {
+    return products.filter((product) => product.title.toLowerCase().includes(query.toLowerCase()) && (category === 'all' || product.category === category));
+}
+function sortCatalog(products, direction) {
+    const result = [...products];
+    if (direction === 'asc') result.sort((a, b) => a.price - b.price);
+    if (direction === 'desc') result.sort((a, b) => b.price - a.price);
+    return result;
+}
+function renderDataCatalog() {
+    const query = document.querySelector('#data-search').value;
+    const category = document.querySelector('#data-category').value;
+    const direction = document.querySelector('#data-sort').value;
+    const products = sortCatalog(filterCatalog(catalogItems, query, category), direction);
+    document.querySelector('#data-catalog').innerHTML = products.map((product) => `<article class="card"><h3>${product.title}</h3><p>${product.price} ₽</p></article>`).join('');
+}
+['#data-search', '#data-category', '#data-sort'].forEach((selector) => document.querySelector(selector)?.addEventListener('input', renderDataCatalog));
+renderDataCatalog();
