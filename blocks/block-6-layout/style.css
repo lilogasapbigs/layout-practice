@@ -100,3 +100,39 @@ section {
 .border-box {
     box-sizing: border-box;
 }
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.catalog-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    min-height: 340px;
+    padding: 12px;
+    border: 1px solid #999999;
+    background: #ffffff;
+}
+
+.catalog-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.catalog-card h3 {
+    min-height: 48px;
+    overflow-wrap: anywhere;
+}
+
+.catalog-card p {
+    flex-grow: 1;
+}
+
+.catalog-card button {
+    height: 34px;
+}
