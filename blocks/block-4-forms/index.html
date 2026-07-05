@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Block-4-Формы</title>
+</head>
+
+<body>
+    <header>
+        <h1>Формы</h1>
+    </header>
+    <hr />
+
+    <main>
+        <section>
+            <h2>Регистрация</h2>
+
+            <form action="#" method="post">
+                <p>
+                    <label for="first-name">Имя</label><br>
+                    <input type="text" id="first-name" name="first-name" required>
+                </p>
+
+                <p>
+                    <label for="last-name">Фамилия</label><br>
+                    <input type="text" id="last-name" name="last-name" required>
+                </p>
+
+                <p>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+                <p>
+                    <label for="phone">Телефон</label><br>
+                    <input type="tel" id="phone" name="phone">
+                </p>
+
+                <p>
+                    <label for="password">Пароль</label><br>
+                    <input type="password" id="password" name="password" required>
+                </p>
+
+                <p>
+                    <label for="password-repeat">Подтверждение пароля</label><br>
+                    <input type="password" id="password-repeat" name="password-repeat" required>
+                </p>
+
+                <p>
+                    <label for="birth-date">Дата рождения</label><br>
+                    <input type="date" id="birth-date" name="birth-date">
+                </p>
+
+                <p>Пол</p>
+                <p>
+                    <label><input type="radio" name="gender" value="male"> мужской</label><br>
+                    <label><input type="radio" name="gender" value="female"> женский</label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="agreement" required>
+                        согласен с условиями
+                    </label>
+                </p>
+
+                <button type="submit">Отправить</button>
+                <button type="reset">Очистить</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
