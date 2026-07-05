@@ -22,3 +22,35 @@ document.querySelector('#event-register')?.addEventListener('submit', (event) =>
         result.textContent = `Пользователь: ${name}, ${email}`;
     }
 });
+
+const todos = [];
+function renderTodos() {
+    const list = document.querySelector('#todo-list');
+    list.innerHTML = '';
+    todos.forEach((todo) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<label><input type="checkbox" data-id="${todo.id}" ${todo.done ? 'checked' : ''}> ${todo.title}</label> <button data-delete="${todo.id}" type="button">Удалить</button>`;
+        list.append(li);
+    });
+    document.querySelector('#todo-stats').textContent = `Всего: ${todos.length}, выполнено: ${todos.filter((todo) => todo.done).length}`;
+}
+document.querySelector('#todo-add')?.addEventListener('click', () => {
+    const input = document.querySelector('#todo-input');
+    if (!input.value.trim()) return;
+    todos.push({ id: Date.now(), title: input.value.trim(), done: false });
+    input.value = '';
+    renderTodos();
+});
+document.querySelector('#todo-list')?.addEventListener('click', (event) => {
+    if (event.target.dataset.delete) {
+        const index = todos.findIndex((todo) => todo.id === Number(event.target.dataset.delete));
+        todos.splice(index, 1);
+        renderTodos();
+    }
+    if (event.target.matches('input[type="checkbox"]')) {
+        const todo = todos.find((item) => item.id === Number(event.target.dataset.id));
+        todo.done = event.target.checked;
+        renderTodos();
+    }
+});
+renderTodos();
