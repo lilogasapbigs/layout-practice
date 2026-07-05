@@ -70,3 +70,25 @@ if (registerForm) {
         }
     });
 }
+
+const productPriceButton = document.querySelector('#product-price-button');
+
+if (productPriceButton) {
+    productPriceButton.addEventListener('click', () => {
+        const value = document.querySelector('#product-price').value;
+        const price = Number(value);
+        const result = document.querySelector('#product-price-result');
+
+        if (value === '' || !Number.isFinite(price) || price < 0) {
+            result.textContent = 'Ошибка цены';
+        } else if (price === 0) {
+            result.textContent = 'Бесплатно';
+        } else if (price < 1000) {
+            result.textContent = 'Дешёвый товар';
+        } else if (price <= 10000) {
+            result.textContent = 'Обычный товар';
+        } else {
+            result.textContent = 'Дорогой товар';
+        }
+    });
+}
