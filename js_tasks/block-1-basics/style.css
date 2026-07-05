@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222222;
+}
+
+header,
+section {
+    max-width: 980px;
+    margin: 0 auto 20px;
+}
+
+section {
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+label,
+input,
+select,
+button,
+textarea {
+    margin: 4px 0;
+}
+
+input,
+select,
+textarea {
+    padding: 6px;
+}
+
+button {
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+.result,
+.message {
+    margin-top: 10px;
+    padding: 10px;
+    background: #eef3ff;
+    border: 1px solid #c8d6f0;
+}
+
+.error {
+    color: #9b1c1c;
+}
+
+.success {
+    color: #1d6b35;
+}
+
+.card,
+.product-card,
+.user-card,
+.task-row {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    background: #fafafa;
+}
+
+.cards,
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cards .card,
+.grid .card,
+.product-card,
+.user-card {
+    width: 210px;
+}
+
+.state-block {
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid #999999;
+}
+
+.state-on,
+.active,
+.available {
+    background: #d8f3dc;
+}
+
+.state-off,
+.not-available {
+    background: #f8d7da;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-overlay.open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: 300px;
+    padding: 20px;
+    background: #ffffff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
