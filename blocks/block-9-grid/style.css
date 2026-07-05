@@ -33,3 +33,58 @@ section {
     height: 140px;
     object-fit: cover;
 }
+
+.home-page {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "header header header"
+        "banner banner banner"
+        "advantages advantages advantages"
+        "catalog catalog reviews"
+        "footer footer footer";
+    gap: 14px;
+}
+
+.home-page > div {
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+.home-header {
+    grid-area: header;
+}
+
+.banner {
+    grid-area: banner;
+    min-height: 120px;
+}
+
+.advantages {
+    grid-area: advantages;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.home-catalog {
+    grid-area: catalog;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.reviews {
+    grid-area: reviews;
+}
+
+.home-footer {
+    grid-area: footer;
+}
+
+footer {
+    margin-top: 20px;
+    color: #555555;
+    text-align: center;
+}
