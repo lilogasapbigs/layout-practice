@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f2f4f8;
+}
+
+section {
+    margin-bottom: 34px;
+}
+
+.grid-catalog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.grid-card {
+    min-height: 110px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+}
