@@ -88,3 +88,35 @@ document.querySelectorAll('[data-task-filter]').forEach((button) => {
         else renderFilteredTasks(filterTasks);
     });
 });
+
+const cart = [
+    { title: 'Мышь', price: 1000, count: 2 },
+    { title: 'Клавиатура', price: 3000, count: 1 },
+    { title: 'Монитор', price: 15000, count: 1 },
+];
+
+function getCartSum(items) {
+    let sum = 0;
+    for (const item of items) sum += item.price * item.count;
+    return sum;
+}
+
+function getCartCount(items) {
+    let count = 0;
+    for (const item of items) count += item.count;
+    return count;
+}
+
+function getMostExpensive(items) {
+    let expensive = items[0];
+    for (const item of items) {
+        if (item.price > expensive.price) expensive = item;
+    }
+    return expensive;
+}
+
+document.querySelector('#cart-button')?.addEventListener('click', () => {
+    const list = document.querySelector('#cart-list');
+    list.innerHTML = cart.map((item) => `<p>${item.title}: ${item.count} шт.</p>`).join('');
+    document.querySelector('#cart-total').textContent = `Сумма: ${getCartSum(cart)} ₽, товаров: ${getCartCount(cart)}, самый дорогой: ${getMostExpensive(cart).title}`;
+});
