@@ -11,3 +11,18 @@ const nestedProductContainer = document.querySelector('#nested-product');
 if (nestedProductContainer) {
     nestedProductContainer.innerHTML = `<article class="product-card"><h3>${nestedProduct.title}</h3><p>${nestedProduct.price} ₽</p><ul><li>${nestedProduct.specs.cpu}</li><li>${nestedProduct.specs.ram}</li><li>${nestedProduct.specs.storage}</li></ul></article>`;
 }
+
+const objectUsers = [
+    { id: 1, name: 'Анна', email: 'anna@example.com', role: 'admin', active: true },
+    { id: 2, name: 'Иван', email: 'ivan@example.com', role: 'user', active: false },
+    { id: 3, name: 'Олег', email: 'oleg@example.com', role: 'user', active: true },
+];
+const objectUsersContainer = document.querySelector('#object-users');
+if (objectUsersContainer) {
+    objectUsers.forEach((user) => {
+        const card = document.createElement('article');
+        card.className = `user-card ${user.active ? 'active' : ''}`;
+        card.innerHTML = `<h3>${user.name}</h3><p>${user.email}</p><p>${user.role}</p><strong>${user.active ? 'активен' : 'не активен'}</strong>`;
+        objectUsersContainer.append(card);
+    });
+}
